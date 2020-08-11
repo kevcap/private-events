@@ -12,4 +12,15 @@ class EventsController < ApplicationController
     @event = Event.all
   end
 
+  def create
+    @event = Event.new(event_params)
+    if @event.save
+      # Handle a succesful save
+      flash[:success] = 'Welcome...'
+      redirect_to event_path(@event)
+    else
+      # Errors in the form. Correct them.
+      render 'new'
+    end
+  end
 end
