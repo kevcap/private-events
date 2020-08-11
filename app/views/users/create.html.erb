@@ -1,0 +1,9 @@
+<% form_for @user do |f| %>
+<div id="form">
+    <%= f.label :username, "Username" %>
+    <%= f.text_field :username %>
+
+    <%= link_to "I do have an account, "#", :id => "changeForm"%>
+    <%= f.submit "Register" %>
+</div>
+<% end %>
