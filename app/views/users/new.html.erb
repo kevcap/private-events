@@ -2,14 +2,7 @@
 <%= form_for @user do |f| %>
   <div id="form">
       <%= f.label :username, "Name" %>
-      <%= f.text_field :name %>
-
-      <%= f.label :password, "Password" %>
-      <%= f.text_field :password %>
-
-      <%= f.label :password_confirmation, "Confirm Password" %>
-      <%= f.text_field :password_confirmation %>
-
+      <%= f.text_field :username %>
 
       <%= link_to "I do have an account"%>
       <%= f.submit "Register" %>
