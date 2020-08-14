@@ -9,7 +9,7 @@ class EventsController < ApplicationController
   end
 
   def index
-    @event = Event.all
+    @events = Event.all
   end
 
   def create
@@ -22,5 +22,9 @@ class EventsController < ApplicationController
       # Errors in the form. Correct them.
       render 'new'
     end
+  end
+
+  def event_params
+    params.require(:events).permit(:name, :location, :date, :description)
   end
 end

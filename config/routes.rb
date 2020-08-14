@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :events, only: [:show, :new, :index]
   resources :users, only: [:new, :show, :create]
 
+  post '/events', to: 'events#index'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
