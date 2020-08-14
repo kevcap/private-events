@@ -13,6 +13,7 @@ class EventsController < ApplicationController
   end
 
   def create
+    render plain: params[:event].inspect
     @event = Event.new(event_params)
     if @event.save
       # Handle a succesful save
