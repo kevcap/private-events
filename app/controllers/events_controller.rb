@@ -13,12 +13,11 @@ class EventsController < ApplicationController
   end
 
   def create
-    render plain: params[:event].inspect
     @event = Event.new(event_params)
     if @event.save
       # Handle a succesful save
       flash[:success] = 'Welcome...'
-      redirect_to event_path(@event)
+      redirect_to(event_path(@event))
     else
       # Errors in the form. Correct them.
       render 'new'
@@ -26,6 +25,6 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:events).permit(:name, :location, :date, :description)
+    params.require(:event).permit(:name, :location, :date, :description)
   end
 end
