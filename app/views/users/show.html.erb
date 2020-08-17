@@ -1,12 +1,32 @@
-<%= link_to 'New Event', new_event_path %>
-<h2>My Events</h2>
+<%= provide(:title, "User-Events") %>
+<section>
 
+    <%= link_to 'Home', root_path %>
+    <h2>Events created by You </h2> 
+  <div>
+      <div>
+        <span><%= pluralize(@events.count, "events") %></span>
+      </div>
 
-<h2>List of Events Registered</h2>
+      <div>
+        <span> <%= pluralize(@events.upcoming_events.count, "upcoming events") %>
+        </span>
+      </div>
 
+      <div>
+        <span><%= pluralize(@events.previous_events.count, "previous events") %></span> 
+      </div>
+  </div>
 
-<h3>Upcoming Events</h3>
-
-
-<h3>Previous Events</h3>
-
+    <div>
+      <% @events.each do |event| %>
+      <div>
+        <p><%= event.date %></p>
+        <div>
+          <p><%= event.description %></p>
+          <p><%= event.location %></p>
+        </div>
+      </div>
+      <% end %>
+    </div>
+</section>
