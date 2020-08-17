@@ -1,7 +1,10 @@
-<h1>Log in</h1>
-<%= form_with(url: login_path, scope: :session, local: true) do | f | %>
-	<% f.label :username %>
-	<%= f.text_field :username %><br>
+<div>
+<h1>Please sign in</h1>
+<%= form_with(scope: :session, url: login_path, local: true) do |form| %>
 
-	<%= f.submit "Log in" %>
+    <%= form.label :email, class: "sr-only" %>
+    <%= form.email_field :email, placeholder: "Enter your email address" %>
+    <%= form.submit "Log in"%>
 <% end %>
+<h4>New to Portal ? <a href= <%= new_user_path %> >  Sign up </a> </h4>
+</div>

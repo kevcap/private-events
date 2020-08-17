@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PrivateEvents</title>
+    <title>Events Management</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,17 +10,36 @@
   </head>
 
   <body>
-  <% if flash.any? %>
-    <% flash.each do |message_type, message| %>
-    <%= message %>
+  <header>
+    <div>
+            <% if current_user %>
+          <strong > <a href=  <%= my_events_path %> > <%= current_user.username %> </a> </strong>
+          <a href=  <%= logout_path %>> Sign out </a>
+        <% else %>
+          <a href= <%= login_path %> > Sign in / Sign up </a>
+        <% end %>
+    </div>
+  </header>
+
+    <% flash.each do |key , msg|%>
+      <% if key === 'notice' %>
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <%= msg %>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <% elsif key === 'alert' %>
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong> <%= msg %> </strong> 
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <% end %>
     <% end %>
-  <% end %>
-  <% if logged_in? %>
-      <%= link_to 'Log out', logout_path, method: :delete %>
-    <% else %>
-      <%= link_to 'Log in', login_path %>
-      <%= link_to 'Sign up', new_user_path %>
-    <% end %>
+
+
     <%= yield %>
   </body>
 </html>
