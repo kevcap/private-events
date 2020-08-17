@@ -1,9 +1,10 @@
 <% form_for @user do |f| %>
 <div id="form">
-    <%= f.label :username, "Username" %>
-    <%= f.text_field :username %>
+<%= form_with(scope: :session, url: login_path, local: true) do |form| %>
 
-    <%= link_to "I do have an account, "#", :id => "changeForm"%>
-    <%= f.submit "Register" %>
+    <%= form.label :email, class: "sr-only" %>
+    <%= form.email_field :email, placeholder: "Enter your email address" %>
+    <%= form.submit "Log in"%>
+<% end %>
 </div>
 <% end %>
