@@ -29,4 +29,34 @@
       </div>
       <% end %>
     </div>
+
+  <div>
+   <br>Upcoming Events that you marked as atendee:</h2>
+    <div>
+      <% @events.upcoming_events.each do |event| %>
+      <div>
+        <p> <%= event.date %></p>
+        <div>
+          <p>Event Description: <%= event.description %></p>
+          <p>Event Location: <%= event.location %></p>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div>
+    <h2>Past events that you created</h2>
+    <div>
+      <% @events.previous_events.each do |event| %>
+      <div>
+        <p><%= event.date %></p>
+        <div>
+          <p>Event Description: <%= event.description %></p>
+          <p>Event Location: <%= event.location %></p>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
 </section>
