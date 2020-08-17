@@ -1,22 +1,31 @@
 class SessionsController < ApplicationController
   def new
+    return unless sign_in?
+
+    flash[:notice] = 'User logged already'
+    redirect_to root_path
   end
 
   def create
-    user = User.find_by(username: params[:session][:username].downcase)
-    if user
-      # log the user in and direct to show page
-      flash[:success] = "Welcome back, #{user.username}"
-      log_in(user)
-      redirect_to user
+    @user = User.find_by(email: (params[:session][:email]))
+    if !@user.nil?
+      session[:user_id] = @user.id
+      flash[:notice] = 'User logged in successfully'
+      redirect_to root_path
     else
-      flash.now[:danger] = 'Invalid email/password' # Log in not
-      render 'new' # Try once more
+      flash.now[:alert] = 'Worng Email Id'
+      render 'new'
     end
   end
 
   def destroy
     session[:user_id] = nil
-    redirect_to new_user_path
+    redirect_to root_path, notice: 'User logged out successfully '
+  end
+
+  private
+
+  def session_params
+    params.permit(:email)
   end
 end
