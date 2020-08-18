@@ -3,7 +3,10 @@ class Event < ApplicationRecord
   has_many :invitations, foreign_key: :attended_event_id
   has_many :attendees, through: :invitations
 
-  # upcoming events  and past event
+  validates :description, presence: true, length: { minimum: 3, maximum: 300 }
+  validates :title, presence: true, length: { minimum: 3, maximum: 25 }
+  validates :location, presence: true, length: { minimum: 3, maximum: 25 }
+
   scope :upcoming_events, -> { where('date >= ?', Time.zone.now) }
   scope :previous_events, -> { where('date < ?', Time.zone.now) }
 end
