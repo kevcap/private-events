@@ -10,17 +10,17 @@ class SessionsController < ApplicationController
     @user = User.find_by(email: (params[:session][:email]))
     if !@user.nil?
       session[:user_id] = @user.id
-      flash[:notice] = 'User logged in successfully'
+      flash[:notice] = 'Welcome! Successful logged in'
       redirect_to root_path
     else
-      flash.now[:alert] = 'Worng Email Id'
+      flash.now[:alert] = 'Worng or nonexistent Email'
       render 'new'
     end
   end
 
   def destroy
     session[:user_id] = nil
-    redirect_to root_path, notice: 'User logged out successfully '
+    redirect_to root_path, notice: 'Goodbye! Successful logged out '
   end
 
   private

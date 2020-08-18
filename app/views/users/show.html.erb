@@ -2,10 +2,10 @@
 <section>
 
     <%= link_to 'Home', root_path %>
-    <h2>Events created by You </h2> 
-  <div>
+     <hr>
+    <div>
       <div>
-        <span><%= pluralize(@events.count, "events") %></span>
+        <span><%= pluralize(@current_user.events.count, "events") %></span>
       </div>
      
       <div>
@@ -22,7 +22,8 @@
         <span><%= pluralize(@events.previous_events.count, "previous events") %></span> 
       </div>
   </div>
-
+   <hr>
+    <h2>Upcoming events</h2> 
     <div>
       <% @events.each do |event| %>
       <div>
@@ -53,7 +54,7 @@
   </div>
 
   <div>
-    <h2>Past events that you created</h2>
+    <h2>Past events</h2>
     <div>
       <% @events.previous_events.each do |event| %>
       <div>
