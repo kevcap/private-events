@@ -28,7 +28,7 @@
 <% end %>
 <%= link_to 'Back', events_path %>
 
-<h2> Event Attendees </h2>
+<h2> Event Attendees (<%= @event.attendee_ids.count%>) </h2>
 
 <ul>
   <% @users.each do |user| %>

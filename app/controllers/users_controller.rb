@@ -6,6 +6,7 @@ class UsersController < ApplicationController
     @attend_events = @current_user.attended_events
     @upcoming_events = @attend_events.upcoming_events
     @prev_events = @attend_events.previous_events
+    @events = Event.all
   end
 
   def new

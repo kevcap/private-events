@@ -7,9 +7,14 @@
       <div>
         <span><%= pluralize(@events.count, "events") %></span>
       </div>
+     
+      <div>
+        <span class="badge badge-light"> <%= pluralize(@current_user.attended_event_ids.count, "attended events") %>
+        </span>
+      </div>
 
       <div>
-        <span> <%= pluralize(@events.upcoming_events.count, "upcoming events") %>
+        <span class="badge badge-light"> <%= pluralize(@events.upcoming_events.count, "upcoming events") %>
         </span>
       </div>
 
@@ -31,18 +36,20 @@
     </div>
 
   <div>
-   <br>Upcoming Events that you marked as atendee:</h2>
+  <hr>
+   <h2>Upcoming Events that you marked as atendee:</h2>
     <div>
-      <% @events.upcoming_events.each do |event| %>
+      <% @current_user.attended_event_ids.each do |id| %>
       <div>
-        <p> <%= event.date %></p>
+        <p> <%= @events.find(id).date %></p>
         <div>
-          <p>Event Description: <%= event.description %></p>
-          <p>Event Location: <%= event.location %></p>
+          <p>Event Description: <%= @events.find(id).description %></p>
+          <p>Event Location: <%= @events.find(id).location %></p>
         </div>
       </div>
       <% end %>
     </div>
+  <hr>
   </div>
 
   <div>
