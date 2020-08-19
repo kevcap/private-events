@@ -27,4 +27,20 @@ RSpec.describe User, type: :model do
 		end
 	end
 	
+	context 'ActiveRecord associations' do
+		it 'has many events' do
+			user = User.reflect_on_association(:events)
+			expect(user.macro).to eq(:has_many) 
+		end
+
+		it 'has many attendees' do
+			user = User.reflect_on_association(:invitations)
+			expect(user.macro).to eq(:has_many) 
+		end
+	end
+	
+	it 'has many attendees' do
+		user = User.reflect_on_association(:attended_events)
+		expect(user.macro).to eq(:has_many) 
+	end
 end
