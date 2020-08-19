@@ -1,11 +1,11 @@
 <h1>Sign up</h1>
 <%= form_for @user do |f| %>
   <div id="form">
-      <%= f.label :username, "Name" %>
-      <%= f.text_field :username %>
+      <%= f.label :username, "Username" %>
+      <%= f.text_field :username, id: 'username' %>
       
       <%= f.label :email, "Email" %>
-      <%= f.text_field :email %>
+      <%= f.text_field :email, id: 'user_email' %>
 
 
       <%= link_to "I do have an account"%>
