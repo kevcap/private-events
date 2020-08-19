@@ -35,35 +35,26 @@ class EventsController < ApplicationController
     redirect_to login_path if session[:user_id].nil?
     @current_user = User.find(session[:user_id])
     @event = @current_user.events.build(event_params)
-    respond_to do |format|
       if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
-        format.json { render :show, status: :created, location: @event }
+        redirect_to @event, notice: 'Event was successfully created.'
       else
-        format.html { render :new }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
+        render :new
       end
-    end
   end
 
   def update
-    respond_to do |format|
       if @event.update(event_params)
-        format.html { redirect_to @event, notice: 'Event was successfully updated.' }
-        format.json { render :show, status: :ok, location: @event }
+        redirect_to @event, notice: 'Event was successfully updated.'
+         render :show, status: :ok, location: @event
       else
-        format.html { render :edit }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
+        render :edit
       end
-    end
   end
 
   def destroy
     @event.destroy
-    respond_to do |format|
-      format.html { redirect_to events_url, notice: 'Event was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+      redirect_to events_url, notice: 'Event was successfully destroyed.'
+      head :no_content
   end
 
   private
