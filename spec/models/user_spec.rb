@@ -21,9 +21,9 @@ RSpec.describe User, type: :model do
 		end
 
 		it 'should change all upper case letters to down case in the email' do
-			user.email = 'usEr@ExaMple.COM'
+			user.email = 'usEr@EmAiL.COM'
 			user.save
-			expect(user.email).to match('user@example.com') 
+			expect(user.email).to match('user@email.com') 
 		end
 	end
 	
