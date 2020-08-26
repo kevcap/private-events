@@ -12,14 +12,19 @@
 
   <body>
   <header>
-    <div>
-            <% if current_user %>
+    <nav class="navbar d-flex justify-content-end px-4">
+        <% if current_user %>
           <strong > <a href=  <%= my_events_path %> > <%= current_user.username %> </a> </strong>
           <a href=  <%= logout_path %>> Sign out </a>
         <% else %>
-          <a href= <%= login_path %> > Sign in / Sign up </a>
+          <% if !current_page?('/login') && !current_page?('/users/new')%>
+            <a href= <%= login_path %> class="btn btn-primary mr-2"> Login </a>
+            <a href= <%= new_user_path%>  class="btn btn-secondary"  > Sign Up </a>
+          <% else %>
+            <a href= <%= root_path %> class="btn btn-primary"> Home </a>
+            <% end %>
         <% end %>
-    </div>
+    </nav>
   </header>
 
     <% flash.each do |key , msg|%>
