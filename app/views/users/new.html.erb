@@ -10,7 +10,7 @@
               <%= form_for @user do |f| %>
                 <% if @user.errors.any? %>
                   <div>
-                    <h2><%= pluralize(@user.errors.count, "error") %> prevented this event from being saved:</h2>
+                    <h4><%= pluralize(@user.errors.count, "error(s)") %> prevented this user from being created:</h4>
 
                     <ul>
                       <% @user.errors.full_messages.each do |msg| %>
