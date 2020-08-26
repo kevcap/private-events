@@ -3,23 +3,24 @@
     <%= link_to 'Home', root_path %>
      <hr>
     <div>
-      <div>
-        <span><%= pluralize(@current_user.events.count, "events") %></span>
-      </div>
+      <button class="btn btn-primary" >
+        Events <span class="badge badge-light"><%= @current_user.events.count%></span>
+      </button>
      
-      <div>
-        <span class="badge badge-light"> <%= pluralize(@current_user.attended_event_ids.count, "attended events") %>
+      <button class="btn btn-success">
+        Attended Events
+        <span class="badge badge-light"> <%= @current_user.attended_event_ids.count %>
         </span>
-      </div>
+      </button>
 
-      <div>
-        <span class="badge badge-light"> <%= pluralize(@events.upcoming_events.count, "upcoming events") %>
+      <button class="btn btn-danger">
+        Upcoming Events <span class="badge badge-light"> <%= @events.upcoming_events.count %>
         </span>
-      </div>
+      </button>
 
-      <div>
-        <span><%= pluralize(@events.previous_events.count, "previous events") %></span> 
-      </div>
+      <button class="btn btn-warning">
+        Previous Events <span class="badge badge-light"><%= @events.previous_events.count %></span> 
+      </button>
   </div>
    <hr>
     <h2>Upcoming events</h2> 
