@@ -23,10 +23,6 @@
     You already Registered for this event
     </h4>
   <% end %>
-
-<% if  current_user and current_user.id == @event.creator_id %>
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<% end %>
 <%= link_to 'Back', events_path %>
 
 <h2> Event Attendees (<%= @event.attendee_ids.count%>) </h2>
