@@ -5,9 +5,9 @@ RSpec.feature 'Sign up', type: :feature do
     User.create(username: 'Tester', email: 'tester@gmail.com')
   end
 
-  scenario 'Has a sign in page' do
+  scenario 'Has a sign up page' do
     visit new_user_path
-    expect(page).to have_content 'Sign in'
+    expect(page).to have_content 'register'
   end
 
   scenario 'Sign in a user' do
@@ -21,7 +21,7 @@ RSpec.feature 'Sign up', type: :feature do
   scenario 'Redirects to user sign in page after unsuccessful loggin in attempt' do
     visit login_url
     fill_in 'user_email', with: 'tester'
-    click_button('Log in')
+    click_button('Login')
     expect(page).to have_current_path(login_path)
   end
 end

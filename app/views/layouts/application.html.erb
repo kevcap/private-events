@@ -22,7 +22,7 @@
         <% else %>
           <% if !current_page?('/login') && !current_page?('/users/new')%>
             <a href= <%= login_path %> class="btn btn-primary mr-2"> Login </a>
-            <a href= <%= new_user_path%>  class="btn btn-secondary"  > Sign Up </a>
+            <a href= <%= new_user_path%>  class="btn btn-secondary"> Sign Up </a>
           <% else %>
             <a href= <%= root_path %> class="btn btn-primary"> Home </a>
             <% end %>
