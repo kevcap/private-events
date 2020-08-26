@@ -1,10 +1,24 @@
-<% form_for @user do |f| %>
-<div id="form">
-<%= form_with(scope: :session, url: login_path, local: true) do |form| %>
-
-    <%= form.label :email %>
-    <%= form.email_field :email, placeholder: "Enter your email address" %>
-    <%= form.submit "Log in"%>
-<% end %>
-</div>
-<% end %>
+<h1>Sign up</h1>
+<%= link_to 'Log in', login_path %>
+  <div id="form" class="sidenav">
+          <div class="login-main-text">
+              <h2>Application<br> Login Page</h2>
+              <p>Login or register from here to access.</p>
+          </div>
+  </div>
+        <div class="main">
+         <div class="col-md-6 col-sm-12">
+            <div class="login-form">
+              <% form_for @user do |f| %>
+              <%= form_with(scope: :session, url: login_path, local: true) do |form| %>
+                  <div class="form-group">
+                  <%= f.label :email, "Email" %>
+                  <%= form.email_field :email, placeholder: "Enter your email address", class:"form-control" %>
+                  </div>
+                  <%= f.submit "Login", class:"btn btn-black" %>
+                  <%= link_to 'Register', new_user_path , class:"btn btn-secondary"%>
+                  <% end %>
+            </div>
+         </div>
+      </div>
+      
