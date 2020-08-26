@@ -9,14 +9,17 @@
         <div class="main">
          <div class="col-md-6 col-sm-12">
             <div class="login-form">
-              <% form_for @user do |f| %>
-              <%= form_with(scope: :session, url: login_path, local: true) do |form| %>
+              <%= form_for @user do |f| %>
                   <div class="form-group">
-                  <%= f.label :email, "Email" %>
-                  <%= form.email_field :email, placeholder: "Enter your email address", class:"form-control" %>
+                  <%= f.label :username, "Username" %>
+                  <%= f.text_field :username, id: 'username', class:"form-control", placeholder:"User Name" %>
                   </div>
-                  <%= f.submit "Login", class:"btn btn-black" %>
-                  <%= link_to 'Register', new_user_path , class:"btn btn-secondary"%>
+                  <div class="form-group">
+                    <%= f.label :email, "Email" %>
+                    <%= f.text_field :email, id: 'user_email', class:"form-control" , placeholder:"email" %> 
+                  </div>
+                  <%= f.submit "Register", class:"btn btn-secondary" %>
+                  <%= link_to 'Log in', login_path , class:"btn btn-black"%>
                   <% end %>
             </div>
          </div>
