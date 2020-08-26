@@ -20,12 +20,12 @@
           <strong > <a href=  <%= my_events_path %> class="btn btn-primary" > <%= current_user.username %> </a> </strong>
           <a href=  <%= logout_path %> class="btn btn-secondary"> Sign out </a>
         <% else %>
-          <% if !current_page?('/login') && !current_page?('/users/new')%>
+          <% if !current_page?(root_path)%>
+            <a href= <%= root_path %> class="btn btn-primary"> Home </a>
+          <% else %>
             <a href= <%= login_path %> class="btn btn-primary mr-2"> Login </a>
             <a href= <%= new_user_path%>  class="btn btn-secondary"> Sign Up </a>
-          <% else %>
-            <a href= <%= root_path %> class="btn btn-primary"> Home </a>
-            <% end %>
+          <% end %>
         <% end %>
     </nav>
   </header>
@@ -48,7 +48,8 @@
       <% end %>
     <% end %>
 
-
-    <%= yield %>
+    <main class="container">
+      <%= yield %>
+    </main>
   </body>
 </html>
