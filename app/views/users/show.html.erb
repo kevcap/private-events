@@ -24,7 +24,7 @@
     <h2>Upcoming events</h2> 
     <div class="container">
       <div class="row">
-        <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
+        <div class="[ col-xs-12 col-sm-offset-10 col-sm-8 ]">
           <ul class="event-list">
             <% @events.upcoming_events.each do |event| %>
               <li>
@@ -37,7 +37,7 @@
                 <div class="info">
                   <h2 class="title"><%= event.title %></h2>
                   <p class="desc"><%= event.description %></p>
-                  <small class="ml-2 d-block">Attendees: <%= event.attendee_ids.count %></small>
+                  <small class="ml-2 badge badge-secondary">Attendees: <%= event.attendee_ids.count %></small><br>
                   <%= link_to 'Show Event', event_path(event), class:"btn btn-success ml-2"%>
                 </div>
                 <div class="social">
