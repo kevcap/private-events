@@ -21,66 +21,70 @@
       </button>
   </div>
    <hr>
-    <h2>Upcoming events</h2> 
+  <h2>Upcoming events</h2> 
+  <div class="container">
+    <div class="row">
+      <div class="[ col-xs-12 col-sm-offset-10 col-sm-8 ]">
+        <ul class="event-list">
+          <% @events.upcoming_events.each do |event| %>
+            <li>
+              <time datetime= <% event.date %>>
+                <span class="day"><%= event.date.day %></span>
+                <span class="month"><%= event.date.strftime("%B")[0...3] %></span>
+                <span class="year"><%= event.date.year %></span>
+              </time>
+              <img alt="Independence Day" src="https://farm4.staticflickr.com/3100/2693171833_3545fb852c_q.jpg" />
+              <div class="info">
+                <h2 class="title"><%= event.title %></h2>
+                <p class="desc"><%= event.description %></p>
+                <small class="ml-2 badge badge-secondary">Attendees: <%= event.attendee_ids.count %></small><br>
+                <%= link_to 'Show Event', event_path(event), class:"btn btn-success ml-2"%>
+              </div>
+              <div class="social">
+                <ul>
+                  <li class="facebook" style="width:33%;"><a href="#facebook"><span class="fa fa-facebook"></span></a></li>
+                  <li class="twitter" style="width:34%;"><a href="#twitter"><span class="fa fa-twitter"></span></a></li>
+                  <li class="google-plus" style="width:33%;"><a href="#google-plus"><span class="fa fa-google-plus"></span></a></li>
+                </ul>
+              </div>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+    <hr>
+    <h2>Events that you marked as atendee:</h2>
     <div class="container">
-      <div class="row">
-        <div class="[ col-xs-12 col-sm-offset-10 col-sm-8 ]">
-          <ul class="event-list">
-            <% @events.upcoming_events.each do |event| %>
-              <li>
-                <time datetime= <% event.date %>>
-                  <span class="day"><%= event.date.day %></span>
-                  <span class="month"><%= event.date.strftime("%B")[0...3] %></span>
-                  <span class="year"><%= event.date.year %></span>
-                </time>
-                <img alt="Independence Day" src="https://farm4.staticflickr.com/3100/2693171833_3545fb852c_q.jpg" />
-                <div class="info">
-                  <h2 class="title"><%= event.title %></h2>
-                  <p class="desc"><%= event.description %></p>
-                  <small class="ml-2 badge badge-secondary">Attendees: <%= event.attendee_ids.count %></small><br>
-                  <%= link_to 'Show Event', event_path(event), class:"btn btn-success ml-2"%>
-                </div>
-                <div class="social">
-                  <ul>
-                    <li class="facebook" style="width:33%;"><a href="#facebook"><span class="fa fa-facebook"></span></a></li>
-                    <li class="twitter" style="width:34%;"><a href="#twitter"><span class="fa fa-twitter"></span></a></li>
-                    <li class="google-plus" style="width:33%;"><a href="#google-plus"><span class="fa fa-google-plus"></span></a></li>
-                  </ul>
-                </div>
-              </li>
-            <% end %>
-          </ul>
+        <div class="row">
+          <div class="[ col-xs-12 col-sm-offset-10 col-sm-8 ]">
+            <ul class="event-list">
+              <% @current_user.attended_event_ids.each do |id| %>
+                <li>
+                  <time datetime= <% @events.find(id).date %>>
+                    <span class="day"><%= @events.find(id).date.day %></span>
+                    <span class="month"><%= @events.find(id).date.strftime("%B")[0...3] %></span>
+                    <span class="year"><%= @events.find(id).date.year %></span>
+                  </time>
+                  <img alt="Independence Day" src="https://farm4.staticflickr.com/3100/2693171833_3545fb852c_q.jpg" />
+                  <div class="info">
+                    <h2 class="title"><%= @events.find(id).title %></h2>
+                    <p class="desc"><%= @events.find(id).description %></p>
+                    <small class="ml-2 badge badge-secondary">Attendees: <%= @events.find(id).attendee_ids.count %></small><br>
+                    <%= link_to 'Show Event', event_path(id), class:"btn btn-success ml-2"%>
+                  </div>
+                  <div class="social">
+                    <ul>
+                      <li class="facebook" style="width:33%;"><a href="#facebook"><span class="fa fa-facebook"></span></a></li>
+                      <li class="twitter" style="width:34%;"><a href="#twitter"><span class="fa fa-twitter"></span></a></li>
+                      <li class="google-plus" style="width:33%;"><a href="#google-plus"><span class="fa fa-google-plus"></span></a></li>
+                    </ul>
+                  </div>
+                </li>
+              <% end %>
+            </ul>
+          </div>
         </div>
-      </div>
     </div>
-  <div>
-  <hr>
-   <h2>Upcoming Events that you marked as atendee:</h2>
-    <div>
-      <% @current_user.attended_event_ids.each do |id| %>
-      <div>
-        <p> <%= @events.find(id).date %></p>
-        <div>
-          <p>Event Description: <%= @events.find(id).description %></p>
-          <p>Event Location: <%= @events.find(id).location %></p>
-        </div>
-      </div>
-      <% end %>
-    </div>
-  <hr>
-  </div>
-
-  <div>
-    <h2>Past events</h2>
-    <div>
-      <% @events.previous_events.each do |event| %>
-      <div>
-        <p><%= event.date %></p>
-        <div>
-          <p>Event Description: <%= event.description %></p>
-          <p>Event Location: <%= event.location %></p>
-        </div>
-      </div>
-      <% end %>
-    </div>
-  </div>
+    <hr>
+    
