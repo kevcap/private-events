@@ -42,6 +42,21 @@
 
 ☑ Valid HTML5 & CSS3
 
+## 👷‍♂️ ‍Installing <a name= "installing"></a>
+```
+Cloning:
+git clone https://github.com/kevincappuccino/private-events
+
+Downloading:
+- unzip the downloaded file
+```
+Get into the page using your favorite terminal and run the following commands:
+```
+bundle install
+rails db:migrate
+rails s
+```
+Then access in your favorite browser the indicated port number (By default rails uses: localhost:3000)
 
 ## 🔧 Built with<a name = "built_using"></a>
 
