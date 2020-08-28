@@ -1,4 +1,4 @@
-<h3 align="center">Kevin Portfolio</h3>
+<h3 align="center">Private Events</h3>
 
 <h4 align="center">
   🛸 Stay hungry, stay foolish
@@ -28,7 +28,7 @@
 </p>
 
 ## 🧐 About <a name = "about"></a>
-<h3 align="center">This is my portfolio, I used the  <a href="https://github.com/cobidev/simplefolio" target="_blank">Simplefolio</a> and made some changes, so it could fit in my taste. Hope you guys enjoy it.
+<h3 align="center">This is a Private Events project, which users can log in, create and attend to events. The goal here is to learn how associations works and how to implement many-to-many; belonging and so on. Hope you guys enjoy it.
 
 ## Features
 
@@ -71,7 +71,7 @@ Give a ⭐️ if you like this project!
 
 
 ## 🏆 Acknowledgement
-
+- [Rails documentation](https://guides.rubyonrails.org/)
 - Prof.: Leonardo Leitão
 
 
