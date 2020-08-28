@@ -13,7 +13,7 @@ feature 'Events features', type: :feature do
     expect(page).to have_content('You must be logged in to perform that action')
   end
 
-  feature 'After login' do    
+  feature 'After login' do
     scenario 'open create event page after login / sign up' do
       visit new_user_path
       fill_in 'username', with: 'kevin1'

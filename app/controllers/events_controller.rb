@@ -35,26 +35,26 @@ class EventsController < ApplicationController
     redirect_to login_path if session[:user_id].nil?
     @current_user = User.find(session[:user_id])
     @event = @current_user.events.build(event_params)
-      if @event.save
-        redirect_to @event, notice: 'Event was successfully created.'
-      else
-        render :new
-      end
+    if @event.save
+      redirect_to @event, notice: 'Event was successfully created.'
+    else
+      render :new
+    end
   end
 
   def update
-      if @event.update(event_params)
-        redirect_to @event, notice: 'Event was successfully updated.'
-         render :show, status: :ok, location: @event
-      else
-        render :edit
-      end
+    if @event.update(event_params)
+      redirect_to @event, notice: 'Event was successfully updated.'
+      render :show, status: :ok, location: @event
+    else
+      render :edit
+    end
   end
 
   def destroy
     @event.destroy
-      redirect_to events_url, notice: 'Event was successfully destroyed.'
-      head :no_content
+    redirect_to events_url, notice: 'Event was successfully destroyed.'
+    head :no_content
   end
 
   private
@@ -64,6 +64,6 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:title, :description, :date, :location, )
+    params.require(:event).permit(:title, :description, :date, :location)
   end
 end

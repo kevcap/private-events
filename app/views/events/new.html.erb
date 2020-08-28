@@ -1,14 +1,1 @@
-<%= form_with(model: @event, local: true) do |form| %>
-  <% if @event.errors.any? %>
-    <div>
-      <h2><%= pluralize(@event.errors.count, "error") %> prevented this event from being saved:</h2>
-
-      <ul>
-        <% @event.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
  <%= render 'newevent'%>

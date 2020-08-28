@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   end
 
   def sign_in?
-    !(current_user.nil? or current_user == false)
+    !(current_user.nil? || (current_user == false))
   end
 
   def require_user

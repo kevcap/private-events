@@ -1,10 +1,9 @@
+RSpec.configure do |config|
+  config.before(:suite) do
+    DatabaseCleaner.clean_with :truncation, except: %w[ar_internal_database]
+  end
 
-RSpec.configure do | config |
-	config.before(:suite) do
-		DatabaseCleaner.clean_with :truncation, except: %w(ar_internal_database)
-	end
-
-	 config.before(:each) do
+  config.before(:each) do
     DatabaseCleaner.strategy = :transaction
   end
 
