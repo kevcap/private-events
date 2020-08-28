@@ -32,13 +32,11 @@
 
 ## Features
 
-⚡️ Modern UI Design + Reveal Animations\
-⚡️ One Page Layout\
-⚡️ Styled with Bootstrap v4.3 + Custom SCSS\
-⚡️ Fully Responsive\
-⚡️ Valid HTML5 & CSS3\
-⚡️ Optimized with Webpack\
-⚡️ Well organized documentation
+☑ Login with email
+☑ Create events
+☑ Attend to events
+☑ Tested with Rspec and Capybara
+☑ Valid HTML5 & CSS3
 
 
 ## 🔧 Built with<a name = "built_using"></a>
