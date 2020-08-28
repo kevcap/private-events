@@ -20,7 +20,7 @@ feature 'Events features', type: :feature do
       fill_in 'user_email', with: 'kevin1@gmail.com'
       click_button('Register')
       visit new_event_path
-      expect(page).to have_content('Create Event')
+      expect(page).to have_content('Create a new event')
     end
   end
 end
