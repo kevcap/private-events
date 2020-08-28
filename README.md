@@ -11,7 +11,7 @@
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE)
 [![issues](https://img.shields.io/github/issues/kevincappuccino/private-events)](https://github.com/kevincappuccino/private-events/issues)
 [![Made By](https://img.shields.io/badge/Made%20By-Kevin%20Alves-brightgreen)](https://github.com/kevincappuccino)
-[![Twitter Follow](https://img.shields.io/twitter/follow/kevinfrontend?label=Follow%20Kevin%20on%20Twitter&style=social)](https://twitter.com/kevinnnmn)
+[![Twitter Follow](https://img.shields.io/twitter/follow/kevinnnmn?label=Follow%20Kevin%20on%20Twitter&style=social)](https://twitter.com/kevinnnmn)
 </div>
 
 <p align="center">
@@ -33,9 +33,13 @@
 ## Features
 
 ☑ Login with email
+
 ☑ Create events
+
 ☑ Attend to events
+
 ☑ Tested with Rspec and Capybara
+
 ☑ Valid HTML5 & CSS3
 
 
