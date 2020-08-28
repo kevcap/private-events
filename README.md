@@ -92,6 +92,7 @@ Give a ⭐️ if you like this project!
 ## 🏆 Acknowledgement
 - [Rails documentation](https://guides.rubyonrails.org/)
 - Prof.: Leonardo Leitão
+- Jelil Faisal Abudu
 
 
 ## 📝 License
