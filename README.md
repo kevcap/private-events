@@ -56,7 +56,7 @@ bundle install
 rails db:migrate
 rails s
 ```
-Then access in your favorite browser the indicated port number (By default rails uses: localhost:3000)
+Then access in your favorite browser the indicated port number (By default rails uses: `localhost:3000`)
 
 ## 🔧 Built with<a name = "built_using"></a>
 
