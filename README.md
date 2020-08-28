@@ -30,7 +30,7 @@
 ## 🧐 About <a name = "about"></a>
 <h3 align="center">This is a Private Events project, which users can log in, create and attend to events. The goal here is to learn how associations works and how to implement many-to-many; belonging and so on. Hope you guys enjoy it.
 
-## Features
+## ✨ Features
 
 ☑ Login with email
 
