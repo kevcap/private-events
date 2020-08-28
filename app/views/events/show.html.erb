@@ -1,0 +1,39 @@
+
+<p>
+  <strong>Title:</strong>
+  <%= @event.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @event.description %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @event.location %>
+</p>
+
+<p>
+  <strong>Event date:</strong>
+  <%= @event.date %>
+</p>
+
+  <% if @not_registered and current_user %>
+    <h3>
+    <a href=<%= register_event_path(id: params[:id]) %> role="button">Register Now</a> 
+    </h3>
+  <% elsif current_user %>
+    <h4>
+    You already Registered for this event
+    </h4>
+  <% end %>
+
+<h2> Event Attendees (<%= @event.attendee_ids.count%>) </h2>
+
+<ul>
+  <% @users.each do |user| %>
+   <li> <%= user.username %> </li>  
+  <% end %> 
+</ul>
+  

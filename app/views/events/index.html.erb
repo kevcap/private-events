@@ -1,0 +1,26 @@
+<h2>Listing all Events: </h1>
+
+<p>
+<%= link_to 'Create new event', new_event_path %>
+</p>
+<div>
+   <button class="btn btn-primary" >
+      Events <span class="badge badge-light"><%= @events.all.count%></span>
+  </button>
+  <button class="btn btn-danger">
+    Upcoming Events <span class="badge badge-light"> <%= @events.upcoming_events.count %>
+    </span>
+  </button>
+  <button class="btn btn-warning">
+    Previous Events <span class="badge badge-light"><%= @events.previous_events.count %></span> 
+  </button>
+</div>
+<hr>
+<h2>Upcoming events</h2> 
+<%= render 'upcomingevents'%>
+<hr>
+<h2>Previous events</h2>
+<%= render 'previousevents'%>
+<hr>
+<h2>All events:</h2>
+<%= render 'eventslist' %>
